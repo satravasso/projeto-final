@@ -1,0 +1,29 @@
+[
+  {
+    "id": 1,
+    "name": "Pure Black",
+    "description": "O Espresso Duplo. 18g de café em 36ml de água. (só café) 36ml.",
+    "price": "4.3",
+    "glutem": "não",
+    "calorias": "0",
+    "image": ""
+  },
+  {
+    "id":2,
+    "name": "Vanila Latte",
+    "description": "Latte e Vanilla com V maiúsculo (com café e leite) 230ml.",
+    "price": "8.8",
+    "glutem": "não",
+    "calorias": "15",
+    "image": ""
+  },
+  {
+    "id":3,
+    "name": "Mad Mocha",
+    "description": "Café e chocolate. Um pedaço do céu na terra. (com café e leite) 230ml.",
+    "price": "8.4",
+    "glutem": "não",
+    "calorias": "20",
+    "image": ""
+  }
+]
