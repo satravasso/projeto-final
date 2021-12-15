@@ -1,0 +1,127 @@
+{
+"coffees" : [
+  {
+    "id": 1,
+    "name": "Pure Black",
+    "description": "O Espresso Duplo. 18g de café em 36ml de água. (só café) 36ml.",
+    "price": "4.3",
+    "glutem": "Sem glútem",
+    "calorias": "0 kcal",
+    "image": "https://media.istockphoto.com/photos/mug-on-plate-filled-with-coffee-surrounded-by-coffee-beans-picture-id157528129?b=1&k=20&m=157528129&s=170667a&w=0&h=8DLweTb1F3_rJFKpHn9ha8aIiQQDAJKdX5y2pR63VsA="
+  },
+  {
+    "id":2,
+    "name": "Vanila Latte",
+    "description": "Latte e Vanilla com V maiúsculo (com café e leite) 230ml.",
+    "price": "8.8",
+    "glutem": "Sem glútem",
+    "calorias": "15 kcal",
+    "image": "https://www.coffeeaddress.com/file/manual/CA_Home_Coffee_in_cafe@2x.png"
+  },
+  {
+    "id":3,
+    "name": "Mad Mocha",
+    "description": "Café e chocolate. Um pedaço do céu na terra. (com café e leite) 230ml.",
+    "price": "8.4",
+    "glutem": "Sem glútem",
+    "calorias": "20 kcal",
+    "image": "https://media.gettyimages.com/photos/cappuccino-topped-with-swirls-of-chocolate-sauce-picture-id157675911?k=20&m=157675911&s=612x612&w=0&h=6B03zvG7d4MlY4BU0kpq7FFdThHfQ75WXXkUwKtmra8="
+  },
+  {
+    "id":4,
+    "name": "Americano",
+    "description": "Um Pure Black diluído em 120ml de água. (só café) 160ml",
+    "price": "5.6",
+    "glutem": "Sem glútem",
+    "calorias": "0 kcal",
+    "image": "https://alfayomicoffee.com/wp-content/uploads/2019/01/American_Coffee-600x600.jpg"
+  },
+  {
+    "id":5,
+    "name": "True White",
+    "description": "Nosso Latte assinado, com um café 18g de café. (com café e leite) 230ml.",
+    "price": "7.4",
+    "glutem": "Sem glútem",
+    "calorias": "26 kcal",
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR-76R7O1chQfHoeMZFwjt8dNoFkjXAdAuodg&usqp=CAU"
+  },
+  {
+    "id":6,
+    "name": "Flat Caramel",
+    "description": "Latte com caramelo. A melhor coisa que você vai provar hoje. (com café e leite) 230ml.",
+    "price": "8.9",
+    "glutem": "Sem glútem",
+    "calorias": "26 kcal",
+    "image": "https://http2.mlstatic.com/D_NQ_NP_679985-MLB25840989933_082017-O.jpg"
+  }
+],
+"teas" : [
+  {
+    "id": 1,
+    "name": "Matcha Latte",
+    "description": "Matcha e leite vaporizado a perfeição. Uma bebida milenar (sem café, com leite) 230ml.",
+    "price": "4.3",
+    "glutem": "Sem glútem",
+    "calorias": "20 kcal",
+    "image": "https://perfectdailygrind.com/pt/wp-content/uploads/sites/5/2021/06/piqsels.com-id-sgdpm-Cropped-2.jpg"
+  },
+  {
+    "id":2,
+    "name": "Matte",
+    "description": "Água e chá matte. Simples assim. 230ml",
+    "price": "3.8",
+    "glutem": "Sem glútem",
+    "calorias": "0 kcal",
+    "image": "https://image.freepik.com/free-photo/side-view-cup-tea-with-cinnamon-white-cherries-sweet-waffles-with-raspberries-white-surface_141793-17924.jpg"
+  }
+],
+"honey": [
+  {
+    "id":1,
+    "name": "Honey",
+    "description": "O mel feito com as abelhas mais felizes do mundo. Criadas em ambiente livre de flores com agrotóxicos.",
+    "price": "8.8",
+    "glutem": "Sem glútem",
+    "calorias": "98 kcal",
+    "image": "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/gettyimages-183354852-1558479028.jpg"
+  },
+  {
+    "id": 2,
+    "name": "Honeycomb",
+    "description": "Delicioso favo de mel.",
+    "price": "2.5",
+    "glutem": "Sem glútem",
+    "calorias": "34 kcal",
+    "image": "https://cdn.shopify.com/s/files/1/0239/7947/products/Honeycomb2_2048x2048.png?v=1571265941"
+  }
+],
+"foods": [
+  {
+    "id": 1,
+    "name": "Cake",
+    "description": "Bolos de banana (castanha e chocolate). De tirar o chapéu.",
+    "price": "5.7",
+    "glutem": "Contém glútem",
+    "calorias": "157 kcal",
+    "image": "https://storage.googleapis.com/imagens_videos_gou_cooking_prod/production/mesas/2020/10/a21f824b-naked-cake-_-tm-kite-festa_-faca-venda-_-karen-silva-_-alta-1.jpg"
+  },
+  {
+    "id":2,
+    "name": "Cookie",
+    "description": "Cookie de chocolate. Preparado para o melhor cookie da sua vida?",
+    "price": "5.3",
+    "glutem": "Contém glútem",
+    "calorias": "237 kcal",
+    "image": "https://www.guiadasemana.com.br/contentFiles/image/2020/12/FEA/principal/66526_w840h0_1607451772shutterstock-661622035.jpg"
+  },
+  {
+    "id":3,
+    "name": "Brownie",
+    "description": "Brownie de chocolate. Existem brownies e este brownie. Prepare-se.",
+    "price": "7.2",
+    "glutem": "Contém glútem",
+    "calorias": "500 kcal",
+    "image": "https://vovopalmirinha.com.br/wp-content/uploads/2020/01/vovo-palmirinha-brownie.jpg"
+  }
+]
+}

@@ -17,15 +17,16 @@ export default function Home({  navigation }) {
        <FlatList
           numColumns={2}
           data={categories}
+          keyExtractor={item => item.id}
           renderItem={({ item }) => ( 
-           <TouchableOpacity onPress={() => navigation.navigate('GenericList')} style={styles.item}>
+           <TouchableOpacity onPress={() => navigation.navigate('GenericList', {menu: item.apiLabel})} style={styles.item}>
             <View style={styles.image}>
               <Image source={{uri:item.icon}} style={styles.img} />
             </View>
-              <Text key={item.id} style={styles.title}>
+            <Text style={styles.title}>
             {item.name}
             </Text>
-            <Text key={item.id} style={styles.text}>
+            <Text  style={styles.text}>
             {item.short}
             </Text>
           </TouchableOpacity>
@@ -46,20 +47,21 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   item: {
-    marginHorizontal: 20,
+    marginVertical: 10,
     marginTop: 25,
     alignItems: 'center',
     justifyContent: 'center',
+    width: 90,
   },
   image:{
-    width: 80,
-     height: 80
+    width: 59,
+    height: 61.8,
+
      
   },
   img: {
-    width: '80%',
-    height: '80%',
-    padding: 30
+    width: "100%",
+    height: "100%",
   },
   title: {
     fontWeight: 'bold',

@@ -2,25 +2,29 @@
   {
     "id": 1,
     "name": "Tea",
+    "apiLabel": "teas",
     "short": "20 a 410ml",
-    "icon": "https://i.imgur.com/K8En16B.png"
+    "icon": "https://i.imgur.com/q2r5tPU.png"
   },
   {
     "id":2,
     "name": "Coffee",
+    "apiLabel": "coffees",
     "short": "20 a 410ml",
-    "icon": "https://i.imgur.com/M7IKuEI.png"
+    "icon": "https://i.imgur.com/KTPCkLY.png"
   },
   {
     "id":3,
     "name": "Honey",
+    "apiLabel": "honey",
     "short": "Bee's paradise",
-    "icon": "https://i.imgur.com/nUSnObL.png"
+    "icon": "https://i.imgur.com/uG7PHac.png"
   },
   {
     "id":4,
     "name": "Food",
+    "apiLabel": "foods",
     "short": "Sweets & Bakary",
-    "icon": "https://i.imgur.com/iN1ootG.png"
+    "icon": "https://i.imgur.com/bdqaQtq.png"
   }
 ]
