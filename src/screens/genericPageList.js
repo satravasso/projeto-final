@@ -1,52 +1,72 @@
-import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { StyleSheet, Text, View,Image, FlatList, TouchableOpacity } from 'react-native';
+import { StyleSheet, Text, View,Image, FlatList, TouchableOpacity, Modal, Alert, Pressable } from 'react-native';
+import {ModalComponent} from '../components/modal/modal'
 
-export default function GenericList({ route }) {
-  let [menu, setMenu] = React.useState([]);
-  const data = route.params.menu;
+export default function GenericList({ route, navigation }) {
+  const [menu, setMenu] = React.useState([]);
+  const [modalVisible, setModalVisible] = React.useState(false);
+  const [itemsValue, setItemsValue] = React.useState();
+  
+  const menuType = route.params.menu;
 
-  React.useEffect(() => {
-    fetch(`/api/${data}`)
+    React.useEffect(() => {
+    fetch(`/api/${menuType}`)
       .then((res) => res.json())
       .then((json) => setMenu(json.menu))
   }, []);
+
+ function countador(num){
+
+ }
+
+
   
   return (
     <View style={styles.container}>
-    <View>
-    <FlatList
+     <ModalComponent  modalVisible={modalVisible} item={itemsValue} setModalVisible={setModalVisible} />
+     <FlatList
        data={menu}
        keyExtractor={item => item.id}
-       renderItem={({ item }) => ( 
-         <View  style={styles.item}>
-        <TouchableOpacity onPress={() => console.log('')}>
-         <View style={styles.image}>
-            <Image source={{uri:item.image}} style={styles.img} />
-          </View>
+       renderItem={({ item }) => {
+         let num;
+         return (         
+        <View style={styles.containerFoodAndCounter}>
+          <View  style={styles.item}>
+          <TouchableOpacity onPress={() =>  { setItemsValue(item), setModalVisible(!modalVisible) }}>
+            <View style={styles.image}>
+                <Image source={{uri:item.image}} style={styles.img} />
+            </View>
           </TouchableOpacity>
           <Text style={styles.title}>
-         {item.name}
-         </Text>
-         <Text style={styles.text}>
-         {item.price}
-         </Text>
-         <Text style={styles.text}>
-         {item.glutem}
-         </Text>
-         <Text style={styles.text}>
-         {item.calorias}
-         </Text>
-         <Text style={styles.text}>
-         {item.description}
-         </Text>
+          {item.name}
+          </Text>
+          <Text style={styles.text}>
+          {item.price}
+          </Text>
+          <Text style={styles.text}>
+          {item.glutem}
+          </Text>
+          <Text style={styles.text}>
+          {item.calorias}
+          </Text>
+          <Text style={styles.text}>
+          {item.description}
+          </Text>
+        </View>
+        <View style={styles.containerCounter}>
+        <Pressable
+              style={[styles.button, styles.buttonClose]}
+              onPress={() => countador(num)}>
+        <Image source={require('../../assets/moreicon.png')}  style={{width:30, height:30}}/>
+        </Pressable>
+        <Text style={styles.counter}>{num}</Text>
+        <Image source={require('../../assets/lessicon.png')} style={{width:30, height:30}} />
+        </View>
        </View>
-     )} 
+     
+     )}} 
     />
- 
- </View>
-  
-   <StatusBar style="auto" />
+   
  </View>
   );
 }
@@ -54,16 +74,15 @@ export default function GenericList({ route }) {
 const styles = StyleSheet.create({
   container: {
     
-    alignItems: 'center',
-    justifyContent: 'center',
-    
+    // alignItems: 'flex-start',
+    // justifyContent: 'flex-start',
+     
   },
   item: {
-    // marginHorizontal: 20,
     padding: 30,
-    justifyContent: 'center',
-    borderBottomWidth: 1,
-    borderBottomColor: 'black',
+    // flex: 2,
+ 
+    width: 200 ,
   },
   image:{
     width: 140,
@@ -80,5 +99,27 @@ const styles = StyleSheet.create({
   },
   text: {
     fontSize: 11
+  },
+  containerFoodAndCounter:{
+   
+    flexDirection: 'row',
+    borderBottomWidth: 1.2,
+    borderBottomColor: 'black',
+    justifyContent: 'space-between',
+   
+    paddingVertical: 5,
+  },
+  containerCounter:{
+    display: 'flex',
+    paddingTop: 80,
+    paddingRight: 30,
+  },
+  counter:{
+    fontSize: 20,
+    alignItems: 'center',
+    justifyContent: 'center',
+    left: '15%',
+    marginTop: 13
+    
   }
 });
