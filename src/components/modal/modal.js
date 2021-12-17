@@ -1,16 +1,14 @@
 import React from 'react';
-import { StyleSheet, Text, View,Image, Pressable, Modal } from 'react-native';
+import { StyleSheet, Text, View,Image, Pressable, Modal, ToastAndroid } from 'react-native';
 
 
 export const ModalComponent = (props) => {
-
-return (
+ return (
   <Modal
         animationType="slide"
         transparent={true}
         visible={props.modalVisible}
         onRequestClose={() => {
-       
           props.setModalVisible(!props.modalVisible);
         }}
       >

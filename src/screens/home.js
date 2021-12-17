@@ -57,7 +57,6 @@ const styles = StyleSheet.create({
     width: 59,
     height: 61.8,
 
-     
   },
   img: {
     width: "100%",

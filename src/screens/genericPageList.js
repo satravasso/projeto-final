@@ -1,12 +1,14 @@
 import React from 'react';
-import { StyleSheet, Text, View,Image, FlatList, TouchableOpacity, Modal, Alert, Pressable } from 'react-native';
+import { StyleSheet, Text, View,Image, FlatList, TouchableOpacity,ToastAndroid } from 'react-native';
 import {ModalComponent} from '../components/modal/modal'
 
-export default function GenericList({ route, navigation }) {
+export default function GenericList({ route }) {
   const [menu, setMenu] = React.useState([]);
   const [modalVisible, setModalVisible] = React.useState(false);
   const [itemsValue, setItemsValue] = React.useState();
-  
+  const [visibleToast, setvisibleToast] = React.useState(false);
+  const [toastMessage, setToastMessage]= React.useState();
+
   const menuType = route.params.menu;
 
     React.useEffect(() => {
@@ -15,20 +17,53 @@ export default function GenericList({ route, navigation }) {
       .then((json) => setMenu(json.menu))
   }, []);
 
- function countador(num){
-
+ function countadorSoma(index){
+   const menuItem = [...menu]
+   menuItem[index].quantity += 1
+    setMenu(menuItem);
+    setToastMessage(`${menuItem[index].quantity} adicionados no carrinho!`)
+    
  }
 
+ function countadorDiminui(index){
+  const menuItem = [...menu]
+  menuItem[index].quantity -= 1
+   setMenu(menuItem);
+   setToastMessage()
+   setToastMessage(`${menuItem[index].quantity} removidos no carrinho!`)
 
+   
+}
+
+const handleButtonPress = () => {
+  setvisibleToast(true);
+};
+
+
+const Toast = ({ visible, message }) => {
+  if (visible) {
+    ToastAndroid.showWithGravityAndOffset(
+      message,
+      ToastAndroid.SHORT,
+      ToastAndroid.BOTTOM,
+      25,
+      50
+    );
+    return null;
+  }
+  return null;
+};
+
+React.useEffect(() => setvisibleToast(false), [visibleToast]);
   
   return (
     <View style={styles.container}>
      <ModalComponent  modalVisible={modalVisible} item={itemsValue} setModalVisible={setModalVisible} />
+     <Toast visible={visibleToast} message={toastMessage} />
      <FlatList
        data={menu}
        keyExtractor={item => item.id}
-       renderItem={({ item }) => {
-         let num;
+       renderItem={({ item, index }) => {
          return (         
         <View style={styles.containerFoodAndCounter}>
           <View  style={styles.item}>
@@ -54,13 +89,17 @@ export default function GenericList({ route, navigation }) {
           </Text>
         </View>
         <View style={styles.containerCounter}>
-        <Pressable
+        <TouchableOpacity
               style={[styles.button, styles.buttonClose]}
-              onPress={() => countador(num)}>
+              onPress={() => {countadorSoma(index), handleButtonPress()}}>
         <Image source={require('../../assets/moreicon.png')}  style={{width:30, height:30}}/>
-        </Pressable>
-        <Text style={styles.counter}>{num}</Text>
+        </TouchableOpacity>
+        <Text style={styles.counter}>{item.quantity}</Text>
+        <TouchableOpacity
+              style={[styles.button, styles.buttonClose]}
+              onPress={() => {countadorDiminui(index), handleButtonPress()}}>
         <Image source={require('../../assets/lessicon.png')} style={{width:30, height:30}} />
+        </TouchableOpacity>
         </View>
        </View>
      
@@ -72,15 +111,8 @@ export default function GenericList({ route, navigation }) {
 }
 
 const styles = StyleSheet.create({
-  container: {
-    
-    // alignItems: 'flex-start',
-    // justifyContent: 'flex-start',
-     
-  },
-  item: {
+   item: {
     padding: 30,
-    // flex: 2,
  
     width: 200 ,
   },
@@ -118,7 +150,7 @@ const styles = StyleSheet.create({
     fontSize: 20,
     alignItems: 'center',
     justifyContent: 'center',
-    left: '15%',
+    left: '30%',
     marginTop: 13
     
   }

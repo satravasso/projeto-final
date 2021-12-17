@@ -1,5 +1,4 @@
 import React from 'react';
-import { StyleSheet, Text, View,Button } from 'react-native';
 import Home from './src/screens/home';
 import GenericList from './src/screens/genericPageList'
 import './src/services/server'
@@ -11,21 +10,12 @@ import { TransitionPresets } from 'react-navigation-stack';
 
 const Stack = createNativeStackNavigator();
 
-
-function Modal  ({route}) {
-  const data = route.params.data;
-  return(<View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-  <Text style={{ fontSize: 30 }}>This is a modal!</Text>
-  <Button onPress={() => console.log()} title="Dismiss" />
-</View>)
-}
-
 export default function App() {
   return (
   
     <NavigationContainer>
       <Stack.Navigator
-        screenOptions={({route}) => {
+        screenOptions={() => {
           return {gestureEnabled: true,
           cardOverlayEnabled: true,
           ...TransitionPresets.ModalTransition
@@ -61,7 +51,6 @@ export default function App() {
                 fontSize: 17,
               },
             }} />
-            <Stack.Screen name="Modal" component={Modal}    mode="modal" headerMode="none"       />
       </Stack.Navigator>
     </NavigationContainer>
      );
@@ -69,11 +58,3 @@ export default function App() {
 
 }
 
-const styles = StyleSheet.create({
-  main: {
-    // paddingTop: 25,
-  },
-  header:{
-
-  }
-});
